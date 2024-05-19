@@ -1,15 +1,27 @@
 import css from "./SearchBar.module.css";
 import { Field, Form, Formik } from "formik";
-import toast, { Toaster } from 'react-hot-toast';
+import toast, { Toaster } from 'react-hot-toast'
+;
 
 function SearchBar({onSearch}) {
-const notify = () => toast('The field cannot be empty!');
+const notify = () => toast('The field cannot be empty!', {
+  icon: '👏',
+  style: {
+    borderRadius: '10px',
+    background: ' #660066',
+    color: '#fff',
+    fontFamily: 'Tahoma',
+  },
+}
+);
 
     return (
         <Formik initialValues={{ query: "" }}
-        onSubmit={(values, actions) => {
-          onSearch(values.query);
-          actions.resetForm();
+        onSubmit={(values, actions) => {          
+          if (values.query === "") {
+            notify();
+          } else {onSearch(values.query);
+            actions.resetForm();}
         }}
       >
         <header className={css.container}>
@@ -22,12 +34,12 @@ const notify = () => toast('The field cannot be empty!');
           autoFocus
           placeholder="Search images and photos..."
         />
-        <button className={css.button} type="submit" onClick={notify}>Search</button>
+        <button className={css.button} type="submit">Search</button>
       </Form>
-    <Toaster
-        position="top-right"
-        reverseOrder={false}     
-    />
+      <Toaster
+          position="top-right"
+          reverseOrder={false}     
+      />
     </header>
     </Formik>
     )

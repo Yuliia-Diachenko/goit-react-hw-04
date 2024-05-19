@@ -10,10 +10,12 @@ export default function Loader() {
         width="50"
         color="grey"
         strokeWidth="5"
+        strokeColor="purple"
         animationDuration="0.75"
         ariaLabel="rotating-lines-loading"
         wrapperStyle={{}}
         wrapperClass=""
+        
         />
     </div>
     

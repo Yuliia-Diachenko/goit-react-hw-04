@@ -29,7 +29,7 @@
     color: white;
 }
 
-.button:hover, .button:focus {
+.button:hover {
     color: rgb(31, 31, 206);
     background-color: rgb(89, 89, 243);
 }
